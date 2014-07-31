@@ -281,6 +281,7 @@ html, body {
   // I know, it's hackish, but it's the simplist way to make the left
   // half of the content always this background color.
   .dark-box {
+    display: none;
     width: $examples-width;
     background-color: $examples-bg;
     position: absolute;
@@ -335,6 +336,8 @@ html, body {
   // to place content above the dark box
   position: relative;
   z-index: 30;
+  max-width: 1024px;
+  margin: 0 auto;
 
   &:after {
     content: '';
@@ -343,7 +346,6 @@ html, body {
   }
 
   &>h1, &>h2, &>h3, &>h4, &>h5, &>h6, &>p, &>table, &>ul, &>ol, &>aside, &>dl {
-    margin-right: $examples-width;
     padding: 0 $main-padding;
     @include box-sizing(border-box);
     display: block;
@@ -366,10 +368,10 @@ html, body {
     font-size: 30px;
     padding-top: 0.5em;
     padding-bottom: 0.5em;
+    border: 1px solid #ddd;
     border-bottom: 1px solid #ccc;
     margin-bottom: $h1-margin-bottom;
     margin-top: 2em;
-    border-top: 1px solid #ddd;
     @include background-image(
       linear-gradient(top, #fff, #f9f9f9)
     );
@@ -388,9 +390,6 @@ html, body {
     border-top: 1px solid #ccc;
     padding-top: 1.2em;
     padding-bottom: 1.2em;
-    @include background-image(
-      linear-gradient(top, rgba(#fff,0.4), rgba(#fff, 0))
-    );
   }
 
   // h2s right after h1s should bump right up
@@ -535,9 +534,6 @@ html, body {
 
     padding: 2em $main-padding;
     margin: 0;
-    width: $examples-width;
-
-    float:right;
     clear:right;
 
     @include box-sizing(border-box);
